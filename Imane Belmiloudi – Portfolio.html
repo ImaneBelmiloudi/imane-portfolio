@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Imane Belmiloudi – Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#50207A; --lav:#D6B9FC; --peri:#838CE5;
+  --bg:#F8F3FF; --surface:#FFFFFF; --ink:#2A1442; --muted:#5E4B78; --line:#E3D3F7;
+  --hero-bg:#50207A; --hero-ink:#FFFFFF; --link:#50207A;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1A0D2B; --surface:#26153C; --ink:#F1E8FF; --muted:#B9A6D6; --line:#3A2559;
+    --hero-bg:#50207A; --link:#D6B9FC; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1A0D2B; --surface:#26153C; --ink:#F1E8FF; --muted:#B9A6D6; --line:#3A2559;
+  --hero-bg:#50207A; --link:#D6B9FC; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","IBM Plex Sans",system-ui,sans-serif;line-height:1.08;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--peri);outline-offset:3px;border-radius:4px}
+.wrap{max-width:64rem;margin:0 auto;padding:0 1.5rem}
+.top{background:var(--hero-bg);color:var(--hero-ink);position:relative;overflow:hidden}
+.top::before{content:"";position:absolute;width:34rem;height:34rem;right:-10rem;top:-12rem;border-radius:50%;background:var(--peri);opacity:.35}
+.top::after{content:"";position:absolute;width:22rem;height:22rem;left:-9rem;bottom:-12rem;border-radius:50%;background:var(--lav);opacity:.18}
+.top .wrap{position:relative;z-index:1}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0}
+nav strong{font-family:"Bricolage Grotesque",sans-serif;font-size:1.25rem}
+nav a{margin-left:1.25rem;text-decoration:none;color:var(--lav);font-weight:500}
+nav a:hover{color:#fff}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center;padding:3rem 0 5.5rem}
+.hero h1{font-size:clamp(2.5rem,6vw,4.4rem);font-weight:700}
+.hero p{color:var(--lav);max-width:34rem;margin:1.5rem 0 2rem;font-size:1.15rem}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.8rem 1.4rem;border-radius:999px;font-weight:500;text-decoration:none;border:2px solid var(--lav);color:var(--lav)}
+.btn.primary{background:var(--lav);border-color:var(--lav);color:var(--purple)}
+.btn:hover{transform:translateY(-2px)}
+.card-id{justify-self:center;text-align:center}
+.avatar{width:min(14rem,60vw);aspect-ratio:1;border-radius:50%;background:linear-gradient(145deg,var(--lav),var(--peri));display:grid;place-items:center;font:700 4.5rem "Bricolage Grotesque",sans-serif;color:var(--purple);box-shadow:0 0 0 10px rgba(214,185,252,.25)}
+.card-id small{display:block;margin-top:1.25rem;color:var(--lav)}
+section{padding:4rem 0}
+section h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:1.75rem}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.about p{margin:0 0 1rem;max-width:36rem}
+.group{margin-bottom:1.25rem}
+.group h3{font-size:1.1rem;margin-bottom:.5rem}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:0;padding:0;list-style:none}
+.tags li{background:var(--surface);border:1px solid var(--line);padding:.3rem .85rem;border-radius:999px;font-size:.95rem}
+.project{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center;margin-bottom:3.5rem}
+.project:nth-child(even) .shot{order:2}
+.shot{background:var(--lav);border-radius:1.25rem;padding:1.25rem}
+.shot svg{width:100%;height:auto;display:block;border-radius:.75rem}
+.project h3{font-size:1.75rem;margin-bottom:.75rem}
+.project p{color:var(--muted);margin:0 0 1rem}
+.project .links{margin-top:1.25rem;display:flex;gap:1.25rem}
+.project .links a{font-weight:500;color:var(--link)}
+.timeline{list-style:none;margin:0;padding:0 0 0 1.5rem;border-left:3px solid var(--peri)}
+.timeline li{position:relative;padding:0 0 2rem 1rem}
+.timeline li::before{content:"";position:absolute;left:calc(-1.5rem - 9px);top:.45rem;width:15px;height:15px;border-radius:50%;background:var(--purple);border:3px solid var(--bg)}
+.timeline h3{font-size:1.25rem}
+.timeline span{color:var(--muted)}
+.contact{background:var(--hero-bg);color:var(--hero-ink)}
+.contact p{max-width:34rem;color:var(--lav);margin:0 0 1.5rem}
+footer{padding:1.5rem 0 2.5rem;background:var(--hero-bg);color:var(--lav);font-size:.95rem}
+@media (max-width:760px){
+  .hero,.about,.project{grid-template-columns:1fr;gap:2rem}
+  .project:nth-child(even) .shot{order:0}
+  nav a{margin-left:.9rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <strong>Imane Belmiloudi</strong>
+      <div><a href="#about">About</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a></div>
+    </nav>
+    <header class="hero">
+      <div>
+        <h1>I build complete web apps, and I’m growing into data and AI.</h1>
+        <p>Full stack developer with a professional degree in Big Data and Artificial Intelligence. I turn ideas into working products, from the database to the interface.</p>
+        <div class="btns">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="card-id">
+        <div class="avatar" role="img" aria-label="Initials IB">IB</div>
+        <small>Full Stack Developer · Morocco</small>
+      </div>
+    </header>
+  </div>
+</div>
+
+<main class="wrap">
+  <section id="about">
+    <h2>About</h2>
+    <div class="about">
+      <div>
+        <p>I started with digital development and built full stack applications with React.js and Laravel. I then moved into Big Data and Artificial Intelligence to work with data as well as code.</p>
+        <p>This mix lets me deliver a feature end to end: design the database, build the API, and shape the interface people use.</p>
+      </div>
+      <div>
+        <div class="group"><h3>Web development</h3>
+          <ul class="tags"><li>React.js</li><li>Laravel</li><li>Tailwind CSS</li><li>SQL</li><li>Git</li></ul></div>
+        <div class="group"><h3>Data and AI</h3>
+          <ul class="tags"><li>Python</li><li>Big Data</li><li>Machine Learning</li></ul></div>
+        <div class="group"><h3>Languages</h3>
+          <ul class="tags"><li>Arabic</li><li>French</li><li>English</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <article class="project">
+      <div class="shot">
+        <svg viewBox="0 0 400 250" role="img" aria-label="Illustration of an HR dashboard">
+          <rect width="400" height="250" fill="#FFFFFF"/>
+          <rect width="64" height="250" fill="#50207A"/>
+          <rect x="14" y="22" width="36" height="8" rx="4" fill="#D6B9FC"/>
+          <rect x="14" y="52" width="36" height="6" rx="3" fill="#838CE5"/>
+          <rect x="14" y="72" width="36" height="6" rx="3" fill="#838CE5"/>
+          <rect x="14" y="92" width="36" height="6" rx="3" fill="#838CE5"/>
+          <rect x="84" y="18" width="110" height="12" rx="6" fill="#2A1442"/>
+          <rect x="84" y="46" width="90" height="52" rx="10" fill="#F1E5FF"/>
+          <rect x="184" y="46" width="90" height="52" rx="10" fill="#D6B9FC"/>
+          <rect x="284" y="46" width="100" height="52" rx="10" fill="#838CE5"/>
+          <rect x="94" y="58" width="30" height="7" rx="3" fill="#50207A"/>
+          <rect x="94" y="74" width="48" height="14" rx="4" fill="#50207A"/>
+          <rect x="194" y="58" width="30" height="7" rx="3" fill="#50207A"/>
+          <rect x="194" y="74" width="40" height="14" rx="4" fill="#50207A"/>
+          <rect x="294" y="58" width="30" height="7" rx="3" fill="#FFFFFF"/>
+          <rect x="294" y="74" width="44" height="14" rx="4" fill="#FFFFFF"/>
+          <rect x="84" y="114" width="150" height="118" rx="10" fill="#F8F3FF"/>
+          <rect x="100" y="190" width="18" height="30" rx="3" fill="#838CE5"/>
+          <rect x="128" y="168" width="18" height="52" rx="3" fill="#50207A"/>
+          <rect x="156" y="178" width="18" height="42" rx="3" fill="#D6B9FC"/>
+          <rect x="184" y="144" width="18" height="76" rx="3" fill="#838CE5"/>
+          <rect x="244" y="114" width="140" height="118" rx="10" fill="#F8F3FF"/>
+          <rect x="256" y="128" width="116" height="10" rx="5" fill="#D6B9FC"/>
+          <rect x="256" y="150" width="116" height="10" rx="5" fill="#E9DBFB"/>
+          <rect x="256" y="172" width="116" height="10" rx="5" fill="#D6B9FC"/>
+          <rect x="256" y="194" width="116" height="10" rx="5" fill="#E9DBFB"/>
+        </svg>
+      </div>
+      <div>
+        <h3>HR Management</h3>
+        <p>A web application to manage employees and HR processes in one place, with a clear dashboard and a structured database.</p>
+        <ul class="tags"><li>React.js</li><li>Laravel</li><li>Tailwind CSS</li><li>SQL</li></ul>
+        <div class="links"><a href="https://github.com/ImaneBelmiloudi">Code on GitHub</a></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="shot">
+        <svg viewBox="0 0 400 250" role="img" aria-label="Illustration of a customer technician platform">
+          <rect width="400" height="250" fill="#FFFFFF"/>
+          <rect width="400" height="44" fill="#50207A"/>
+          <rect x="18" y="16" width="90" height="12" rx="6" fill="#D6B9FC"/>
+          <circle cx="372" cy="22" r="11" fill="#838CE5"/>
+          <rect x="18" y="62" width="160" height="170" rx="10" fill="#F8F3FF"/>
+          <rect x="30" y="76" width="136" height="34" rx="8" fill="#FFFFFF"/>
+          <rect x="30" y="118" width="136" height="34" rx="8" fill="#D6B9FC"/>
+          <rect x="30" y="160" width="136" height="34" rx="8" fill="#FFFFFF"/>
+          <rect x="40" y="88" width="60" height="7" rx="3" fill="#50207A"/>
+          <rect x="40" y="130" width="60" height="7" rx="3" fill="#50207A"/>
+          <rect x="40" y="172" width="60" height="7" rx="3" fill="#50207A"/>
+          <rect x="196" y="62" width="186" height="170" rx="10" fill="#F8F3FF"/>
+          <rect x="210" y="76" width="100" height="12" rx="6" fill="#2A1442"/>
+          <rect x="210" y="102" width="158" height="8" rx="4" fill="#D6B9FC"/>
+          <rect x="210" y="120" width="140" height="8" rx="4" fill="#E9DBFB"/>
+          <rect x="210" y="138" width="150" height="8" rx="4" fill="#E9DBFB"/>
+          <rect x="210" y="170" width="70" height="26" rx="13" fill="#50207A"/>
+          <rect x="290" y="170" width="70" height="26" rx="13" fill="#838CE5"/>
+        </svg>
+      </div>
+      <div>
+        <h3>Customer Technician Platform</h3>
+        <p>A platform that connects customers with technicians: requests are created, followed and handled through a simple interface.</p>
+        <ul class="tags"><li>React.js</li><li>Laravel</li><li>Tailwind CSS</li><li>SQL</li></ul>
+        <div class="links"><a href="https://github.com/ImaneBelmiloudi">Code on GitHub</a></div>
+      </div>
+    </article>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <ol class="timeline">
+      <li><h3>Professional Bachelor’s in Big Data and Artificial Intelligence</h3><span>École HEAD des études supérieures · 2025–2026</span></li>
+      <li><h3>Specialized Technician in Digital Development</h3><span>OFPPT · 2023–2025</span></li>
+    </ol>
+  </section>
+</main>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let’s work together</h2>
+    <p>I’m open to Data Analyst, Junior Data Scientist, ML/AI and full stack roles, including remote positions. Write to me anytime.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:i.belmiloudi2006@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/imane-belmiloudi-1b05ba434/">LinkedIn</a>
+      <a class="btn" href="https://github.com/ImaneBelmiloudi">GitHub</a>
+    </div>
+  </div>
+</section>
+<footer><div class="wrap">© 2026 Imane Belmiloudi</div></footer>
+</body>
+</html>
